@@ -13,7 +13,7 @@ module.exports = {
       white: "#FFFFFF",
     },
     fontSize: {
-      sm: ["13px", "24px"],
+      sm: ["13px", "19px"],
       mobSm: ["13px", "19px"],
       base: ["16px", "24px"],
       btn: ["20px", "30px"],
