@@ -75,16 +75,16 @@ function App() {
     (people !== "0" ? " hidden" : "");
 
   const tipBtnStyles =
-    "w-[117px] mr-[14px] h-12 bg-dark rounded text-white mt-4 hover:bg-light hover:text-dark";
+    "w-[117px] mr-[14px] mobile:mr-0 mobile:w-[47%] h-12 bg-dark rounded text-white mt-4 hover:bg-light hover:text-dark";
   return (
-    <div className="App bg-bgColor h-screen w-full flex items-center justify-center">
-      <div className="mb-10 flex flex-col items-center rounded-lg">
-        <img src={logo} alt="SPLITTER" className="mb-20" />
-        <div className="bg-white flex flex-row w-[920px] h-[481px] p-8 pl-12">
+    <div className="App bg-bgColor h-screen w-full laptop:flex laptop:items-center laptop:justify-center">
+      <div className="laptop:mb-10 flex flex-col items-center rounded-lg mobile:h-full">
+        <img src={logo} alt="SPLITTER" className="mb-20 mobile:mt-12" />
+        <div className="bg-white flex flex-row w-[920px] h-[481px] p-8 pl-12 rounded-lg mobile:w-screen mobile:h-full mobile:rounded-t-lg mobile:flex-col">
           <div className="flex flex-col">
             <div className="flex flex-col">
               <span className="text-common text-base mb-[6px]">Bill</span>
-              <div className="relative w-[379px]">
+              <div className="relative laptop:w-[379px] mobile:w-full">
                 <img
                   src={dollar}
                   alt="$"
@@ -98,11 +98,11 @@ function App() {
                 />
               </div>
             </div>
-            <div className="mt-10">
+            <div className="mt-10 mobile:mt-8">
               <span className="text-common text-base mb-[6px]">
                 Select Tip %
               </span>
-              <div className="flex flex-wrap  w-[379px]">
+              <div className="mobile:flex flex-wrap mobile:justify-between w-[379px] mobile:w-full">
                 <button onClick={tipBtnClick} className={tipBtnStyles}>
                   5%
                 </button>
@@ -115,7 +115,7 @@ function App() {
                 >
                   15%
                 </button>
-                <br />
+                {/* <br /> */}
                 <button onClick={tipBtnClick} className={tipBtnStyles}>
                   25%
                 </button>
@@ -123,7 +123,7 @@ function App() {
                   50%
                 </button>
                 <input
-                  className="pr-2 w-[117px] h-12 bg-input rounded text-dark placeholder:text-[#547878] placeholder:text-left text-right mt-4 pl-[14px] outline-none"
+                  className="pr-2 w-[117px] mobile:w-[47%] h-12 bg-input rounded text-dark placeholder:text-[#547878] mobile:placeholder:text-right placeholder:text-left text-right mt-4 laptop:pl-[14px] outline-none"
                   placeholder="Custom"
                   value={amount}
                   onChange={amountInputHandler}
@@ -138,7 +138,7 @@ function App() {
                 </span>
                 <span className={pplErrorStyles}>Can't be zero</span>
               </div>
-              <div className="relative w-[379px]">
+              <div className="relative w-[379px] mobile:w-full mobile:mb-8">
                 <img
                   src={person}
                   alt="P"
@@ -153,26 +153,34 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="flex-col justify-between w-[413px] h-[417px] bg-dark flex rounded-md ml-12 p-10">
+          <div className="flex-col justify-between w-[413px] h-[417px] mobile:w-full mobile:h-min bg-dark flex rounded-md laptop:ml-12 laptop:p-10 mobile:px-[22px] mobile:pt-[37px] mobile:pb-6">
             <div className="flex flex-col">
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-col">
                   <span className="text-base text-white">Tip Amount</span>
-                  <span className="text-sm text-[#7F9D9F]">/ Person</span>
+                  <span className="text-sm mobile:text-mobSm text-[#7F9D9F]">
+                    / Person
+                  </span>
                 </div>
-                <span className="text-light text-xl">$0.00</span>
+                <span className="text-light text-xl mobile:text-mobXl">
+                  $0.00
+                </span>
               </div>
               <div className="flex flex-row justify-between items-center mt-6">
                 <div className="flex flex-col">
-                  <span className="text-base text-white">Tip Amount</span>
-                  <span className="text-sm text-[#7F9D9F]">/ Person</span>
+                  <span className="text-base text-white">Total</span>
+                  <span className="text-sm mobile:text-mobSm text-[#7F9D9F]">
+                    / Person
+                  </span>
                 </div>
-                <span className="text-light text-xl">$0.00</span>
+                <span className="text-light text-xl mobile:text-mobXl">
+                  $0.00
+                </span>
               </div>
             </div>
             <button
               type="submit"
-              className="bg-light w-full h-12 rounded text-dark hover:bg-[#9FE8DF] active:bg-[#0D686D]"
+              className="mobile:mt-[33px] bg-light w-full h-12 rounded text-dark hover:bg-[#9FE8DF] active:bg-[#0D686D]"
             >
               Submit
             </button>
