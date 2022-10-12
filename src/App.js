@@ -76,9 +76,14 @@ function App() {
     ) {
       if (e.target.value !== "") {
         if (e.target.value.charAt(0) === "0") {
+          //replace(/0/g, '')
           setPeople(e.target.value.slice(1, e.target.value.length));
         } else {
-          setPeople(e.target.value);
+          if (people === "0") {
+            setPeople(e.target.value.charAt(0));
+          } else {
+            setPeople(e.target.value);
+          }
         }
       } else {
         setPeople("0");
