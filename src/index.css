@@ -9,9 +9,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button.active {
+  background-color: #9fe8df !important;
+  color: #00474b !important;
+}
+
+input.active {
+  border: 2px solid #26c2ae;
+}
+
+input.error {
+  /* outline-[2px] outline-error */
+  outline-width: 2px;
+  outline-color: #e17457;
 }
