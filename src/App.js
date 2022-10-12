@@ -153,8 +153,29 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="w-[413px] h-[417px] bg-dark flex rounded-md ml-12">
-            <button type="submit">Submit</button>
+          <div className="flex-col justify-between w-[413px] h-[417px] bg-dark flex rounded-md ml-12 p-10">
+            <div className="flex flex-col">
+              <div className="flex flex-row justify-between items-center">
+                <div className="flex flex-col">
+                  <span className="text-base text-white">Tip Amount</span>
+                  <span className="text-sm text-[#7F9D9F]">/ Person</span>
+                </div>
+                <span className="text-light text-xl">$0.00</span>
+              </div>
+              <div className="flex flex-row justify-between items-center mt-6">
+                <div className="flex flex-col">
+                  <span className="text-base text-white">Tip Amount</span>
+                  <span className="text-sm text-[#7F9D9F]">/ Person</span>
+                </div>
+                <span className="text-light text-xl">$0.00</span>
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="bg-light w-full h-12 rounded text-dark hover:bg-[#9FE8DF] active:bg-[#0D686D]"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
