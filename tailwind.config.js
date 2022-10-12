@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+    screens: {
+      mobile: { max: "850px" },
+      laptop: { min: "850px" },
+    },
     colors: {
       bgColor: "#C5E4E7",
       dark: "#00474B",
