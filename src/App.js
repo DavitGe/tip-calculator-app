@@ -1,15 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import logo from "./images/logo.svg";
 import dollar from "./images/icon-dollar.svg";
 import person from "./images/icon-person.svg";
 
 function App() {
-  const [bill, setBill] = useState("");
-  const [amount, setAmount] = useState("");
-  const [people, setPeople] = useState("0");
-  const [tip, setTip] = useState(0);
+  const [bill, setBill] = useState(""); //bill input value
+  const [amount, setAmount] = useState(""); //custom tip input value
+  const [people, setPeople] = useState("0"); //people input value
 
+  const [tip, setTip] = useState(0); //Tip% (from buttons or amount hook)
+
+  const [tipAmount, setTipAmount] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    if (Number(people) > 0 && Number(bill) > 0) {
+      console.log("bill", bill);
+      setTipAmount(((Number(bill) / 100) * Number(tip)) / Number(people));
+      setTotal(
+        Number(bill) / Number(people) +
+          ((Number(bill) / 100) * Number(tip)) / Number(people)
+      );
+    } else {
+      setTipAmount(0);
+      setTotal(0);
+    }
+  }, [bill, people, tip]);
   const re = /^\d*\.?\d+$/;
   const billInputHandler = (e) => {
     if (
@@ -30,6 +47,7 @@ function App() {
         !e.target.value.slice(0, -1).includes("."))
     ) {
       setAmount(e.target.value);
+      setTip(e.target.value);
     }
   };
 
@@ -39,6 +57,7 @@ function App() {
       active.classList.toggle("active");
     }
     e.currentTarget.classList.toggle("active");
+    setTip(e.target.value);
   };
 
   const tipBtnClick = (e) => {
@@ -64,6 +83,17 @@ function App() {
       } else {
         setPeople("0");
       }
+    }
+  };
+
+  const resetClickHandler = () => {
+    setBill("");
+    setAmount("");
+    setPeople("0");
+    setTip(0);
+    const active = document.getElementsByClassName("active")[0];
+    if (active) {
+      active.classList.toggle("active");
     }
   };
 
@@ -163,7 +193,7 @@ function App() {
                   </span>
                 </div>
                 <span className="text-light text-xl mobile:text-mobXl">
-                  $0.00
+                  ${tipAmount.toFixed(2)}
                 </span>
               </div>
               <div className="flex flex-row justify-between items-center mt-6">
@@ -174,15 +204,15 @@ function App() {
                   </span>
                 </div>
                 <span className="text-light text-xl mobile:text-mobXl">
-                  $0.00
+                  ${total.toFixed(2)}
                 </span>
               </div>
             </div>
             <button
-              type="submit"
               className="mobile:mt-[33px] bg-light w-full h-12 rounded text-dark hover:bg-[#9FE8DF] active:bg-[#0D686D]"
+              onClick={resetClickHandler}
             >
-              Submit
+              Reset
             </button>
           </div>
         </div>
