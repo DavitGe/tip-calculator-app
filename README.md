@@ -29,7 +29,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Click for solution](https://github.com/DavitGe/tip-calculator-app)
-- Live Site URL: [Click to visit project](https://your-live-site-url.com)
+- Live Site URL: [Click to visit project](https://davitge.github.io/tip-calculator-app/)
 
 ## My process
 
